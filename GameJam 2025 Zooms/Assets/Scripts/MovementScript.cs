@@ -7,33 +7,49 @@ public class MovementScript : MonoBehaviour
     private InputAction moveAction;
     private Vector3 position;
     public float speed = 5f;
+    [SerializeField] private Animator animator;
+    private bool isFacingRight;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         moveAction = InputSystem.actions["Move"];
+        isFacingRight = true;
     }
 
     // Update is called once per frame
     void Update()
-    {
+    { 
         position = this.gameObject.transform.position;
         this.gameObject.transform.Translate(new Vector3(moveAction.ReadValue<Vector2>().x, moveAction.ReadValue<Vector2>().y) * Time.deltaTime * speed, 0);
-        
-        if(position.y > 4.5f)
+
+        if (moveAction.ReadValue<Vector2>().x > 0 && !isFacingRight)
         {
-            this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, 4.5f, this.gameObject.transform.position.z);
-        } else if(position.y < -4.5f)
+            isFacingRight = true;
+            transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+        }
+        else if (moveAction.ReadValue<Vector2>().x < 0 && isFacingRight)
         {
-            this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, -4.5f, this.gameObject.transform.position.z);
+            isFacingRight = false;
+            transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
         }
 
-        if (position.x > 8.4f)
+        if (transform.position.y > 8.4f)
         {
-            this.gameObject.transform.position = new Vector3(8.4f, this.gameObject.transform.position.y, this.gameObject.transform.position.z);
+            transform.position = new Vector3(transform.position.x, 8.4f, transform.position.z);
         }
-        else if (position.x < -8.4f)
+        else if (transform.position.y < -26.5f)
         {
-            this.gameObject.transform.position = new Vector3(-8.4f, this.gameObject.transform.position.y, this.gameObject.transform.position.z);
+            transform.position = new Vector3(transform.position.x, -26.5f, transform.position.z);
+
+        }
+
+        if (position == transform.position)
+        {
+            animator.SetBool("IsMoving", false);
+        } 
+        else
+        {
+            animator.SetBool("IsMoving", true);
         }
     }
 }
