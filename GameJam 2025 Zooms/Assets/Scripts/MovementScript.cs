@@ -20,7 +20,8 @@ public class MovementScript : MonoBehaviour
     void Update()
     { 
         position = this.gameObject.transform.position;
-        this.gameObject.transform.Translate(new Vector3(moveAction.ReadValue<Vector2>().x, moveAction.ReadValue<Vector2>().y) * Time.deltaTime * speed, 0);
+        float movement = Time.deltaTime * speed;
+        this.gameObject.transform.Translate(new Vector3(moveAction.ReadValue<Vector2>().x * movement, moveAction.ReadValue<Vector2>().y * movement), 0);
 
         if (moveAction.ReadValue<Vector2>().x > 0 && !isFacingRight)
         {
