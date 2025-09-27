@@ -24,7 +24,7 @@ public class GroundEnemy : MonoBehaviour
 
     public bool inAttackRange;
 
-    public bool isAttacked;
+    public bool isAttacked = false;
 
     private bool isFacingRight = false;
 
@@ -50,6 +50,7 @@ public class GroundEnemy : MonoBehaviour
         Attack();
         checkShouldFlip();
         checkDistance();
+        animator.SetBool("isHurt", isAttacked);
         InflictDamage();
         if (target)
         {

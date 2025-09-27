@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: 11c72761e30746d448de92c30c66ec7f
+guid: 084cd0b6ae32f5442859337323878bb7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7956324710507340631
-    second: bert_walk_0
-  - first:
-      213: 9083017001433404913
-    second: bert_walk_1
-  - first:
-      213: -1416926713535438158
-    second: bert_walk_2
-  - first:
-      213: 4220871464939928109
-    second: bert_walk_3
+      213: -7474833777292353432
+    second: raptor_hit_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -106,19 +97,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -135,79 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bert_walk_0
+      name: raptor_hit_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 4
-        width: 259
-        height: 269
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 753e3777b2b8a6e60800000000000000
-      internalID: 7956324710507340631
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bert_walk_1
-      rect:
-        serializedVersion: 2
-        x: 261
-        y: 1
-        width: 262
-        height: 275
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1f59543c6db5d0e70800000000000000
-      internalID: 9083017001433404913
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bert_walk_2
-      rect:
-        serializedVersion: 2
-        x: 530
-        y: 2
-        width: 256
-        height: 273
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2b265f649a0165ce0800000000000000
-      internalID: -1416926713535438158
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bert_walk_3
-      rect:
-        serializedVersion: 2
-        x: 789
+        x: 0
         y: 0
-        width: 259
-        height: 274
+        width: 253
+        height: 229
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d2ab356fb3c839a30800000000000000
-      internalID: 4220871464939928109
+      spriteID: 860e56d684e044890800000000000000
+      internalID: -7474833777292353432
       vertices: []
       indices: 
       edges: []
@@ -236,10 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      bert_walk_0: 7956324710507340631
-      bert_walk_1: 9083017001433404913
-      bert_walk_2: -1416926713535438158
-      bert_walk_3: 4220871464939928109
+      raptor_hit_0: -7474833777292353432
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
