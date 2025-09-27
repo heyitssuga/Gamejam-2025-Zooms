@@ -12,10 +12,11 @@ public class GroundEnemy : MonoBehaviour
     Rigidbody2D rb;
     public Transform target;
     Vector2 moveDirection;
+    private Animator animator;
 
     public bool inAttackRange;
 
-    private bool isFacingRight = true;
+    private bool isFacingRight = false;
 
     private bool isCloseX = false;
     private bool isCloseY = false;
@@ -29,6 +30,8 @@ public class GroundEnemy : MonoBehaviour
     void Start()
     {
         target = GameObject.Find("Player").transform;
+        animator = GetComponent<Animator>();
+        Flip();
     }
 
     // Update is called once per frame
@@ -53,18 +56,24 @@ public class GroundEnemy : MonoBehaviour
             if (isCloseX == true && isCloseY == false)
             {
                 rb.linearVelocity = new Vector2(0, moveDirection.y) * moveSpeed;
+                animator.SetBool("isMoving", true);
+
             }
             else if (isCloseY == true && isCloseX == false)
             {
                 rb.linearVelocity = new Vector2(moveDirection.x, 0) * moveSpeed;
+                animator.SetBool("isMoving", true);
+
             }
             else if(isCloseX == true && isCloseY == true)
             {
                 rb.linearVelocity = new Vector2(0, 0);
+                animator.SetBool("isMoving", false);
             }
             else
             {
                 rb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
+                animator.SetBool("isMoving", true);
             }
         }
     }
