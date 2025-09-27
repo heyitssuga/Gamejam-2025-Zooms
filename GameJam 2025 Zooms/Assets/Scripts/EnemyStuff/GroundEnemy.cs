@@ -13,8 +13,18 @@ public class GroundEnemy : MonoBehaviour
     public Transform target;
     Vector2 moveDirection;
     private Animator animator;
+    bool enemyInvincible = false;
+    float enemyInvincbleTimer;
+    public float enemyInvincbleTime = 0.8f;
+    private bool isDead = false;
+    public bool isWalking = false;
+    public SimpleFlash flashDamage;
+
+
 
     public bool inAttackRange;
+
+    public bool isAttacked;
 
     private bool isFacingRight = false;
 
@@ -37,9 +47,10 @@ public class GroundEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        attack();
+        Attack();
         checkShouldFlip();
         checkDistance();
+        InflictDamage();
         if (target)
         {
             Vector3 direction = (target.position - transform.position).normalized;
@@ -99,6 +110,20 @@ public class GroundEnemy : MonoBehaviour
         }
     }
 
+    private void InflictDamage()
+    {
+        if(isAttacked == true)
+        {
+            enemyInvincible = true;
+            enemyInvincbleTimer = enemyInvincbleTime;
+            rb.linearVelocity = new Vector2(0, 0);
+            isWalking = false;
+            flashDamage.Flash();
+            hp -= 1;
+            isAttacked = false;
+        }
+
+    }
     private void checkShouldFlip()
     {
         if (isFacingRight == true && target.position.x < transform.position.x)
@@ -112,7 +137,30 @@ public class GroundEnemy : MonoBehaviour
 
     }
 
-    private void attack()
+
+    /*
+   * ProcessEnemyInvincble makes it so that the enemy cant get hit for a few seconds after getting hit.
+   */
+    private void ProcessEnemyInvincble()
+    {
+        if (enemyInvincible == true && enemyInvincbleTimer > 0f)
+        {
+            enemyInvincbleTimer -= Time.deltaTime;
+        }
+        else if (enemyInvincbleTimer <= 0f)
+        {
+            enemyInvincible = false;
+            isWalking = true;
+            if (isDead == true)
+            {
+                Destroy(gameObject);
+            }
+        }
+
+    }
+
+
+    private void Attack()
     {
         if (inAttackRange == true)
         {
