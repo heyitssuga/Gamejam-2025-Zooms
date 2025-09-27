@@ -20,11 +20,11 @@ public class PlayerInfo : MonoBehaviour
     {
         if (Input.GetKeyDown("j"))
         {
-            SetHealth(-20f);
+            healthBar.HandleHealthChange(-20, 0.5f);
         }
 
         if (Input.GetKeyDown("h")){
-            SetHealth(20f);
+            healthBar.HandleHealthChange(20, 0.5f);
         }
     }
     
