@@ -8,12 +8,13 @@ public class MovementScript : MonoBehaviour
     private Vector3 position;
     public float speed = 5f;
     [SerializeField] private Animator animator;
-    private bool isFacingRight;
+    private bool isFacingRight, isOnBorder;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         moveAction = InputSystem.actions["Move"];
         isFacingRight = true;
+        isOnBorder = false;
     }
 
     // Update is called once per frame
@@ -37,19 +38,22 @@ public class MovementScript : MonoBehaviour
         if (transform.position.y > 8.4f)
         {
             transform.position = new Vector3(transform.position.x, 8.4f, transform.position.z);
+            isOnBorder = true;
         }
         else if (transform.position.y <= -26.5f)
         {
             transform.position = new Vector3(transform.position.x, -26.5f, transform.position.z);
-
-        }
-
-        if(transform.position.x < -53.8f)
+            isOnBorder = true;
+        } else if(transform.position.x < -53.8f)
         {
             transform.position = new Vector3(-53.8f, transform.position.y, transform.position.z);
+            isOnBorder = true;
+        } else
+        {
+            isOnBorder = false;
         }
 
-        if (position == transform.position)
+        if (position == transform.position && !isOnBorder)
         {
             animator.SetBool("IsMoving", false);
         } 
