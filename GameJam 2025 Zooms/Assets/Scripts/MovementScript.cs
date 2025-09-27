@@ -17,7 +17,7 @@ public class MovementScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     { 
         position = this.gameObject.transform.position;
         float movement = Time.deltaTime * speed;
@@ -38,10 +38,15 @@ public class MovementScript : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, 8.4f, transform.position.z);
         }
-        else if (transform.position.y < -26.5f)
+        else if (transform.position.y <= -26.5f)
         {
             transform.position = new Vector3(transform.position.x, -26.5f, transform.position.z);
 
+        }
+
+        if(transform.position.x < -53.8f)
+        {
+            transform.position = new Vector3(-53.8f, transform.position.y, transform.position.z);
         }
 
         if (position == transform.position)

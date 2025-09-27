@@ -13,6 +13,9 @@ public class CameraMovementScript : MonoBehaviour
         Vector3 targetPosition = playerTransform.position + offset;
         
         transform.position = new Vector3(targetPosition.x, 0, -10);
-
+        if(transform.position.x < 0)
+        {
+            transform.position = new Vector3(0, 0, -10);
+        }
     }
 }
