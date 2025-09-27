@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +14,18 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Play()
+    {
+        //Will load the appropriate scene when it exists later
+        SceneManager.LoadScene("");
+    }
+
+    public void Credits()
+    {
+        //Will load the appropriate scene when it exists later
+        SceneManager.LoadScene(2);
     }
 
     public void Quit()
