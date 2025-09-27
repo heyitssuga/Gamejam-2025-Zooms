@@ -275,8 +275,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraMovementScript
   playerTransform: {fileID: 1547326853}
-  offset: {x: 0, y: 0, z: 0}
-  damping: 0.5
 --- !u!1001 &6495338633057493911
 PrefabInstance:
   m_ObjectHideFlags: 0
