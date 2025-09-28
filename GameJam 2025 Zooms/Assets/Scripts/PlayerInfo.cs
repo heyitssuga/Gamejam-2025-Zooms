@@ -8,9 +8,14 @@ public class PlayerInfo : MonoBehaviour
     [SerializeField]
     private HealthBar healthBar;
 
+    [SerializeField]
+    private PlayerScript playa;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        MaxHealth = playa.hp;
+        Health = playa.hp;
         healthBar.SetMaxHealth(MaxHealth);
         healthBar.SetHealth(Health);
     }
@@ -18,6 +23,11 @@ public class PlayerInfo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Health = playa.hp;
+        if(playa.isAttacked && playa.canBeAttacked)
+        {
+            healthBar.HandleHealthChange(-1, 0.5f);
+        }
         if (Input.GetKeyDown("j"))
         {
             healthBar.HandleHealthChange(-20, 0.5f);
