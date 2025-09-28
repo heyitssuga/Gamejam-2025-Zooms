@@ -133,10 +133,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 409
+        width: 408
         height: 282
-      alignment: 9
-      pivot: {x: 0.36, y: 0.52}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -153,12 +153,12 @@ TextureImporter:
       name: bert_punch_1
       rect:
         serializedVersion: 2
-        x: 409
+        x: 408
         y: 0
-        width: 409
+        width: 410
         height: 282
-      alignment: 9
-      pivot: {x: 0.36, y: 0.52}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -179,8 +179,8 @@ TextureImporter:
         y: 0
         width: 409
         height: 282
-      alignment: 9
-      pivot: {x: 0.36, y: 0.52}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -201,8 +201,8 @@ TextureImporter:
         y: 0
         width: 409
         height: 282
-      alignment: 9
-      pivot: {x: 0.36, y: 0.52}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -223,8 +223,8 @@ TextureImporter:
         y: 0
         width: 409
         height: 282
-      alignment: 9
-      pivot: {x: 0.36, y: 0.52}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -245,8 +245,8 @@ TextureImporter:
         y: 0
         width: 409
         height: 282
-      alignment: 9
-      pivot: {x: 0.36, y: 0.52}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
