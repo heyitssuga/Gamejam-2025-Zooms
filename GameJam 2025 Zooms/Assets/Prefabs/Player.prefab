@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b59c84a206f64ae44ae8c6abcb842882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackScript
-  attackCooldown: 4
+  attackCooldown: 3
   hit1: 0
   hit2: 0
   hit3: 0
