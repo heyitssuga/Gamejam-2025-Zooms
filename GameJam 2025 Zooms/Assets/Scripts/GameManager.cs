@@ -20,6 +20,12 @@ public class GameManager : MonoBehaviour
     public void Play()
     {
         //Will load the appropriate scene when it exists later
+        SceneManager.LoadScene(3);
+    }
+
+    public void Tutorial()
+    {
+        //Will load the appropriate scene when it exists later
         SceneManager.LoadScene(2);
     }
 
