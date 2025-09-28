@@ -41,7 +41,7 @@ public class PlayerAttackScript : MonoBehaviour
             hit2 = false;
             hit3 = false;
             canAttack = true;
-            attackCooldown = 10f;
+            attackCooldown = attackTimerAtFirst;
         }
 
         if (hit1)
