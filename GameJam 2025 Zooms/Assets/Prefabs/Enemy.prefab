@@ -160,6 +160,7 @@ MonoBehaviour:
   clip1: {fileID: 7400000, guid: 2db1b0a1e8353024eb1cb50cf6de7794, type: 2}
   hitBox: {fileID: 3864612487479426468}
   isAttacked: 0
+  sfx: {fileID: 0}
   sfxClips:
   - {fileID: 8300000, guid: e28302fee5b5e5b43b653ae17b5fe069, type: 3}
   - {fileID: 8300000, guid: 8e352a484be59904db84173749faa98c, type: 3}
@@ -306,7 +307,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 2018418843
   m_SortingLayer: 4
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 0.5803922}
   m_FlipX: 0
