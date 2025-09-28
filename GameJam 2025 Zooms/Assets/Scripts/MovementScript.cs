@@ -9,6 +9,7 @@ public class MovementScript : MonoBehaviour
     public float speed = 5f;
     [SerializeField] private Animator animator;
     private bool isFacingRight, isOnBorder;
+    [SerializeField] private CameraMovementScript camera;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -44,13 +45,20 @@ public class MovementScript : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, -26.5f, transform.position.z);
             isOnBorder = true;
-        } else if(transform.position.x < -53.8f)
-        {
-            transform.position = new Vector3(-53.8f, transform.position.y, transform.position.z);
-            isOnBorder = true;
-        } else
+        }
+        else
         {
             isOnBorder = false;
+        }
+
+        if (!camera.isFollowing)
+        {
+            Vector3 camPos = camera.transform.position;
+            if(transform.position.x - -53.8f < camPos.x)
+            {
+                transform.position = new Vector3(camPos.x - 53.8f, transform.position.y, transform.position.z);
+                isOnBorder = true;
+            }
         }
 
         if (position == transform.position && !isOnBorder)

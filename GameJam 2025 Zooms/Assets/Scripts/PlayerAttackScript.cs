@@ -98,7 +98,6 @@ public class PlayerAttackScript : MonoBehaviour
                 hit1 = true;
                 animator.SetBool("IsHit1", true);
                 canAttack = false;
-                Debug.Log("Attack 1");
             }
             else if (attackAction.IsPressed() && canAttack2)
             {
@@ -106,7 +105,6 @@ public class PlayerAttackScript : MonoBehaviour
                 hit2 = true;
                 animator.SetBool("IsHit2", true);
                 canAttack2 = false;
-                Debug.Log("Attack 2");
             }
             else if (attackAction.IsPressed() && canAttack3)
             {
@@ -114,7 +112,6 @@ public class PlayerAttackScript : MonoBehaviour
                 hit3 = true;
                 animator.SetBool("IsHit3", true);
                 canAttack3 = false;
-                Debug.Log("Attack 3");
             }
         }
         
