@@ -42,7 +42,7 @@ public class Boss : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        sfx = GameObject.Find("SoundEffects").GetComponent<AudioSource>();
+        sfx = GameObject.Find("Sfx").GetComponent<AudioSource>();
         target = GameObject.Find("Player").transform;
         animator = GetComponent<Animator>();
         Flip();
@@ -52,6 +52,7 @@ public class Boss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        target = GameObject.Find("Player").transform;
         if (!isDead)
         {
             checkShouldFlip();

@@ -28,14 +28,6 @@ public class PlayerInfo : MonoBehaviour
         {
             healthBar.HandleHealthChange(-1, 0.5f);
         }
-        if (Input.GetKeyDown("j"))
-        {
-            healthBar.HandleHealthChange(-20, 0.5f);
-        }
-
-        if (Input.GetKeyDown("h")){
-            healthBar.HandleHealthChange(20, 0.5f);
-        }
     }
     
     public void SetHealth(float healthChange)
