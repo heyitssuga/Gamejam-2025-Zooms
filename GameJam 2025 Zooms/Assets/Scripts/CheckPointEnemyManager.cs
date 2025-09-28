@@ -12,6 +12,11 @@ public class CheckPointEnemyManager : MonoBehaviour
     [Header("ThirdCheckPoint")]
     [SerializeField] private GameObject[] thirdCheckPointEnemies;
     [SerializeField] private GameObject[] thirdCheckPointSpawns;
+    [Header("FourthCheckPoint")]
+    [SerializeField] private GameObject[] fourthCheckPointEnemies;
+    [SerializeField] private GameObject[] fourthCheckPointSpawns;
+    [SerializeField] private GameObject boss;
+    [SerializeField] private GameObject bossSpawns;
     [Header("PlayerStuff")]
     [SerializeField] private GameObject player;
     [SerializeField] private CameraMovementScript cameraMovement;
@@ -21,6 +26,7 @@ public class CheckPointEnemyManager : MonoBehaviour
     public bool checkPoint1Done = false;
     public bool checkPoint2Done = false;
     public bool checkPoint3Done = false;
+    public bool checkPoint4Done = false;
     private System.Random rnd;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -43,7 +49,6 @@ public class CheckPointEnemyManager : MonoBehaviour
 
     public void PlayerEnterCheckPoint(int checkPointNumber)
     {
-        Debug.Log("Player entered CheckPoint " + checkPointNumber);
         switch (checkPointNumber)
         {
             case 1:
@@ -80,6 +85,20 @@ public class CheckPointEnemyManager : MonoBehaviour
                     enemy.GetComponent<GroundEnemy>().moveSpeed = rnd.Next(3, 4);
                     enemy.GetComponent<GroundEnemy>().hp = 3;
                 }
+                break;
+
+            case 4:
+                for (int i = 0; i < fourthCheckPointEnemies.Length; i++)
+                {
+                    GameObject enemy = fourthCheckPointEnemies[i];
+                    Vector3 spawnPos = fourthCheckPointSpawns[i].transform.position;
+                    checkPoint4Done = true;
+                    Instantiate(enemy, spawnPos, Quaternion.identity);
+                    enemy.GetComponent<GroundEnemy>().moveSpeed = rnd.Next(3, 4);
+                    enemy.GetComponent<GroundEnemy>().hp = 1;
+                }
+                Vector3 spawnPosBoss = bossSpawns.transform.position;
+                Instantiate(boss, spawnPosBoss, Quaternion.identity);
                 break;
         }
     }

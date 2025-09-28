@@ -11,6 +11,7 @@ public class CameraMovementScript : MonoBehaviour
     private bool update1stCheckPoint = false;
     private bool update2stCheckPoint = false;
     private bool update3stCheckPoint = false;
+    private bool update4stCheckPoint = false;
     private Vector3 newPosition;
 
     private void FixedUpdate()
@@ -27,7 +28,6 @@ public class CameraMovementScript : MonoBehaviour
         {
             transform.position = new Vector3(0, 0, -10);
             isFollowing = false;
-            isOnCheckPoint = true;
         }
         if (checkPoint.checkPoint1Done && !checkPoint.checkPoint2Done && isOnCheckPoint)
         {
@@ -43,10 +43,8 @@ public class CameraMovementScript : MonoBehaviour
         }
         else if (checkPoint.checkPoint2Done && !checkPoint.checkPoint3Done && isOnCheckPoint)
         {
-            Debug.Log("In 2nd CheckPoint");
             if (!update2stCheckPoint)
             {
-                Debug.Log("Update 2nd CheckPoint");
                 newPosition = transform.position;
                 update2stCheckPoint = true;
             }
@@ -55,13 +53,23 @@ public class CameraMovementScript : MonoBehaviour
             isFollowing = false;
             isOnCheckPoint = true;
         }
-        else if (checkPoint.checkPoint3Done && isOnCheckPoint)
+        else if (checkPoint.checkPoint3Done && !checkPoint.checkPoint4Done && isOnCheckPoint)
         {
             if (!update3stCheckPoint)
             {
-                Debug.Log("Update 3rd CheckPoint");
                 newPosition = transform.position;
                 update3stCheckPoint = true;
+            }
+            transform.position = newPosition;
+            isFollowing = false;
+            isOnCheckPoint = true;
+        }
+        else if (checkPoint.checkPoint4Done && isOnCheckPoint)
+        {
+            if (!update4stCheckPoint)
+            {
+                newPosition = transform.position;
+                update4stCheckPoint = true;
             }
             transform.position = newPosition;
             isFollowing = false;

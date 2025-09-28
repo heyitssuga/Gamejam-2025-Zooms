@@ -112,6 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MovementScript
   speed: 20
   animator: {fileID: 7271401388043442117}
+  camera: {fileID: 0}
 --- !u!95 &7271401388043442117
 Animator:
   serializedVersion: 7
@@ -173,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b59c84a206f64ae44ae8c6abcb842882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackScript
-  attackCooldown: 6
+  attackCooldown: 4
   hit1: 0
   hit2: 0
   hit3: 0
