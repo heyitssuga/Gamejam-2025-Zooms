@@ -22,11 +22,11 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if(hp <= 0)
-        //{
-        //    Destroy(player);
-        //}
-        if(!canBeAttacked)
+        if (hp <= 0)
+        {
+            Destroy(player);
+        }
+        if (!canBeAttacked)
         {
             player.GetComponent<Animator>().enabled = false;
             player.GetComponent<SpriteRenderer>().sprite = sprites[2];
