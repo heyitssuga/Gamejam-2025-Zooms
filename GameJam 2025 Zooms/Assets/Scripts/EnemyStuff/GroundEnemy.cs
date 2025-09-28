@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework.Constraints;
 using Mono.Cecil;
+using UnityEngine.Rendering.Universal.Internal;
+using UnityEngine.UIElements;
 
 public class GroundEnemy : MonoBehaviour
 {
@@ -13,8 +15,6 @@ public class GroundEnemy : MonoBehaviour
     public Transform target;
     Vector2 moveDirection;
     private Animator animator;
-    bool enemyInvincible = false;
-    float enemyInvincbleTimer;
     public float enemyInvincbleTime = 0.8f;
     private bool isDead = false;
     public bool isWalking = false;
@@ -23,6 +23,9 @@ public class GroundEnemy : MonoBehaviour
 
 
     public bool inAttackRange;
+    public AnimationClip clip1;
+    private float lengthClip;
+    private float waitTime  = 0;
 
     public bool isAttacked = false;
 
@@ -42,6 +45,7 @@ public class GroundEnemy : MonoBehaviour
         target = GameObject.Find("Player").transform;
         animator = GetComponent<Animator>();
         Flip();
+        lengthClip = clip1.length;
     }
 
     // Update is called once per frame
@@ -115,8 +119,6 @@ public class GroundEnemy : MonoBehaviour
     {
         if(isAttacked == true)
         {
-            enemyInvincible = true;
-            enemyInvincbleTimer = enemyInvincbleTime;
             rb.linearVelocity = new Vector2(0, 0);
             isWalking = false;
             flashDamage.Flash();
@@ -138,34 +140,20 @@ public class GroundEnemy : MonoBehaviour
 
     }
 
-
-    /*
-   * ProcessEnemyInvincble makes it so that the enemy cant get hit for a few seconds after getting hit.
-   */
-    private void ProcessEnemyInvincble()
-    {
-        if (enemyInvincible == true && enemyInvincbleTimer > 0f)
-        {
-            enemyInvincbleTimer -= Time.deltaTime;
-        }
-        else if (enemyInvincbleTimer <= 0f)
-        {
-            enemyInvincible = false;
-            isWalking = true;
-            if (isDead == true)
-            {
-                Destroy(gameObject);
-            }
-        }
-
-    }
-
-
     private void Attack()
     {
-        if (inAttackRange == true)
+        if ((waitTime <= 0))
         {
-            Debug.Log("attack");
+
+            if (inAttackRange == true)
+            {
+                animator.SetTrigger("Attack");
+                waitTime = lengthClip;
+            }
+        }
+        else if ((waitTime > 0))
+        {
+            waitTime -= Time.deltaTime;
         }
     }
 
