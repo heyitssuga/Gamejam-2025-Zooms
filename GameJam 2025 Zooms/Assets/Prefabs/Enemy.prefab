@@ -150,8 +150,8 @@ MonoBehaviour:
   spawn2: {fileID: 4836010569326246959}
   spawn3: {fileID: 79141183897825454}
   hp: 3
-  moveSpeed: 3
-  target: {fileID: 7842347865769640963, guid: 5630858a0effe4c4087728609e3e006e, type: 3}
+  moveSpeed: 4
+  target: {fileID: 0}
   enemyInvincbleTime: 0.8
   isWalking: 0
   flashDamage: {fileID: 8943980870956192176}
@@ -325,7 +325,7 @@ GameObject:
   - component: {fileID: 2993215811232756314}
   - component: {fileID: 127975756841591916}
   - component: {fileID: 3412367434363601673}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: EnemyHurtbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
