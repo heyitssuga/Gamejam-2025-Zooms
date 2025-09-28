@@ -801,7 +801,7 @@ GameObject:
   - component: {fileID: 4392364792158990305}
   - component: {fileID: 2551480075984154605}
   - component: {fileID: 5075288657916878255}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: EnemyHurtbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
