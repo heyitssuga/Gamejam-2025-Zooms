@@ -20,18 +20,18 @@ public class GameManager : MonoBehaviour
     public void Play()
     {
         //Will load the appropriate scene when it exists later
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene(2);
     }
 
     public void Credits()
     {
         //Will load the appropriate scene when it exists later
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
 
     public void BacktoTitleScreen()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 
     public void Quit()
