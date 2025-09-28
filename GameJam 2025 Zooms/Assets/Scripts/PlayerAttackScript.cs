@@ -5,7 +5,8 @@ public class PlayerAttackScript : MonoBehaviour
 {
 
     InputAction attackAction;
-    private float attackCooldown = 10f;
+    public float attackCooldown = 10f;
+    private float attackTimerAtFirst;
     private float length, length2, length3;
     public bool hit1, hit2, hit3;
     private bool canAttack, canAttack2, canAttack3;
@@ -23,6 +24,7 @@ public class PlayerAttackScript : MonoBehaviour
         length = clip.length;
         length2 = clip2.length;
         length3 = clip3.length;
+        attackTimerAtFirst = attackCooldown;
     }
 
     // Update is called once per frame
@@ -52,7 +54,7 @@ public class PlayerAttackScript : MonoBehaviour
             }
         }
 
-        if(!hit2 && attackCooldown <= 9.5f)
+        if(!hit2 && attackCooldown <= attackTimerAtFirst - 0.5f)
         {
             hitbox.SetActive(false);
             canAttack2 = true;
@@ -67,13 +69,13 @@ public class PlayerAttackScript : MonoBehaviour
             }
         }
 
-        if (!hit3 && attackCooldown <= 9f)
+        if (!hit3 && attackCooldown <= attackTimerAtFirst - 1f)
         {
             hitbox.SetActive(false);
             canAttack3 = true;
         }
 
-        if(attackCooldown <= 8.5f)
+        if(attackCooldown <= attackTimerAtFirst - 1.5f)
         {
             hitbox.SetActive(false);
         }
