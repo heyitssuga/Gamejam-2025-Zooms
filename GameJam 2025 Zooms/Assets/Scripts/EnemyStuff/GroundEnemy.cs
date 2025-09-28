@@ -9,6 +9,9 @@ using Unity.VisualScripting;
 
 public class GroundEnemy : MonoBehaviour
 {
+    public GameObject pow;
+    public GameObject crunch;
+    public GameObject booM;
 
     public float hp = 3;
     public float moveSpeed = 2f;
@@ -17,11 +20,12 @@ public class GroundEnemy : MonoBehaviour
     Vector2 moveDirection;
     private Animator animator;
     public float enemyInvincbleTime = 0.8f;
-    private bool isDead = false;
     public bool isWalking = false;
     public SimpleFlash flashDamage;
 
-
+    private bool isDead = false;
+    float deadTimer = 0;
+    bool startedTimer = false;
 
     public bool inAttackRange;
     public AnimationClip clip1;
@@ -48,53 +52,67 @@ public class GroundEnemy : MonoBehaviour
         animator = GetComponent<Animator>();
         Flip();
         lengthClip = clip1.length;
+        pow.SetActive(false);
+        crunch.SetActive(false);
+        booM.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Attack();
-        checkShouldFlip();
-        checkDistance();
-        animator.SetBool("isHurt", isAttacked);
-        InflictDamage();
-        if (target)
+        if (!isDead)
         {
-            Vector3 direction = (target.position - transform.position).normalized;
-            moveDirection = direction * moveSpeed;
-            //float angle = Mathf.Atan2(direction.y,direction.x) * Mathf.Rad2Deg;
-            //rb.rotation = angle;
+            checkShouldFlip();
+            checkDistance();
+            animator.SetBool("isHurt", isAttacked);
+            CheckDead();
+            if (target)
+            {
+                Vector3 direction = (target.position - transform.position).normalized;
+                moveDirection = direction * moveSpeed;
+                //float angle = Mathf.Atan2(direction.y,direction.x) * Mathf.Rad2Deg;
+                //rb.rotation = angle;
+            }
+        }
+        else
+        {
+            Died();
         }
     }
 
     private void FixedUpdate()
     {
-        if (target)
+        if (!isDead)
         {
-            if (isWalking)
+            Attack();
+            InflictDamage();
+            if (target)
             {
+                if (isWalking)
+                {
 
-                if (isCloseX == true && isCloseY == false)
-                {
-                    rb.linearVelocity = new Vector2(0, moveDirection.y) * moveSpeed;
-                    animator.SetBool("isMoving", true);
+                    if (isCloseX == true && isCloseY == false)
+                    {
+                        rb.linearVelocity = new Vector2(0, moveDirection.y) * moveSpeed;
+                        animator.SetBool("isMoving", true);
 
-                }
-                else if (isCloseY == true && isCloseX == false)
-                {
-                    rb.linearVelocity = new Vector2(moveDirection.x, 0) * moveSpeed;
-                    animator.SetBool("isMoving", true);
+                    }
+                    else if (isCloseY == true && isCloseX == false)
+                    {
+                        rb.linearVelocity = new Vector2(moveDirection.x, 0) * moveSpeed;
+                        animator.SetBool("isMoving", true);
 
-                }
-                else if (isCloseX == true && isCloseY == true)
-                {
-                    rb.linearVelocity = new Vector2(0, 0);
-                    animator.SetBool("isMoving", false);
-                }
-                else
-                {
-                    rb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
-                    animator.SetBool("isMoving", true);
+                    }
+                    else if (isCloseX == true && isCloseY == true)
+                    {
+                        rb.linearVelocity = new Vector2(0, 0);
+                        animator.SetBool("isMoving", false);
+                    }
+                    else
+                    {
+                        rb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
+                        animator.SetBool("isMoving", true);
+                    }
                 }
             }
         }
@@ -130,6 +148,18 @@ public class GroundEnemy : MonoBehaviour
             flashDamage.Flash();
             hp -= 1;
             isAttacked = false;
+            if (hp == 2)
+            {
+                pow.SetActive(true);
+            }
+            else if (hp == 1)
+            {
+                crunch.SetActive(true);
+            }
+            else if (hp == 0)
+            {
+                booM.SetActive(true);
+            }
         }
 
     }
@@ -156,7 +186,7 @@ public class GroundEnemy : MonoBehaviour
                 rb.linearVelocity = new Vector2(0, 0);
                 hitBox.SetActive(true);
                 animator.SetTrigger("Attack");
-                waitTime = lengthClip;
+                waitTime = lengthClip+1;
                 isWalking = false;
             }
             else
@@ -169,6 +199,33 @@ public class GroundEnemy : MonoBehaviour
         {
             waitTime -= Time.deltaTime;
         }
+    }
+
+    private void CheckDead()
+    {
+        if(hp <= 0)
+        {
+            isDead = true;
+        }
+    }
+    private void Died()
+    {
+        if (deadTimer <= 0 && startedTimer == false)
+        {
+            rb.linearVelocity = new Vector2(0, 0);
+            rb.rotation = Random.Range(-360, 360);
+            rb.linearVelocity = new Vector2(Random.Range(100, 1000), Random.Range(100, 1000));
+            deadTimer = 3f;
+            startedTimer = true;
+        }
+        else if(deadTimer > 0 && startedTimer == true)
+        {
+            deadTimer -= Time.deltaTime;
+        }else if(deadTimer <= 0 && startedTimer == true)
+        {
+            Destroy(gameObject);
+        }
+
     }
 
     /*
