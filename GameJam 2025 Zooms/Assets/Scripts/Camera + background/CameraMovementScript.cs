@@ -5,20 +5,66 @@ public class CameraMovementScript : MonoBehaviour
     [SerializeField] private Transform playerTransform;
     [SerializeField] private Vector3 offset;
     [SerializeField] private float damping;
+    [SerializeField] private CheckPointEnemyManager checkPoint;
     public bool isFollowing = true;
-
-    private Vector3 velocity = Vector3.zero;
+    public bool isOnCheckPoint = false;
+    private bool update1stCheckPoint = false;
+    private bool update2stCheckPoint = false;
+    private bool update3stCheckPoint = false;
+    private Vector3 newPosition;
 
     private void FixedUpdate()
     {
         Vector3 targetPosition = playerTransform.position + offset;
         
-        transform.position = new Vector3(targetPosition.x, 0, -10);
+        if(isFollowing)
+        {
+            transform.position = new Vector3(targetPosition.x, 0, -10);
+        }
 
-        if(transform.position.x < 0)
+
+        if(transform.position.x < 0 && !checkPoint.checkPoint1Done)
         {
             transform.position = new Vector3(0, 0, -10);
             isFollowing = false;
+        }
+        if (checkPoint.checkPoint1Done && !checkPoint.checkPoint2Done && isOnCheckPoint)
+        {
+            if (!update1stCheckPoint)
+            {
+                newPosition = transform.position;
+                update1stCheckPoint = true;
+            }
+            transform.position = newPosition;
+
+            isFollowing = false;
+            isOnCheckPoint = true;
+        }
+        else if (checkPoint.checkPoint2Done && !checkPoint.checkPoint3Done && isOnCheckPoint)
+        {
+            Debug.Log("In 2nd CheckPoint");
+            if (!update2stCheckPoint)
+            {
+                Debug.Log("Update 2nd CheckPoint");
+                newPosition = transform.position;
+                update2stCheckPoint = true;
+            }
+            transform.position = newPosition;
+
+            isFollowing = false;
+            isOnCheckPoint = true;
+        }
+        else if (checkPoint.checkPoint3Done && isOnCheckPoint)
+        {
+            if (!update3stCheckPoint)
+            {
+                Debug.Log("Update 3rd CheckPoint");
+                newPosition = transform.position;
+                update3stCheckPoint = true;
+            }
+            transform.position = newPosition;
+            isFollowing = false;
+            isOnCheckPoint = true;
         }
         else
         {

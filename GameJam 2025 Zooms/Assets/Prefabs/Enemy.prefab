@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 8943980870956192176}
   m_Layer: 6
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,7 +61,7 @@ Transform:
   m_GameObject: {fileID: 843709468636454761}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 85.9, y: 1.30704, z: 0}
+  m_LocalPosition: {x: 367.1973, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -117,8 +117,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 2018418843
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 6255908685046270912, guid: c49d18d2e24e5d943bf36b13999ca2e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -150,8 +150,8 @@ MonoBehaviour:
   spawn2: {fileID: 4836010569326246959}
   spawn3: {fileID: 79141183897825454}
   hp: 3
-  moveSpeed: 6
-  target: {fileID: 0}
+  moveSpeed: 3
+  target: {fileID: 7842347865769640963, guid: 5630858a0effe4c4087728609e3e006e, type: 3}
   enemyInvincbleTime: 0.8
   isWalking: 0
   flashDamage: {fileID: 8943980870956192176}

@@ -51,12 +51,17 @@ public class MovementScript : MonoBehaviour
             isOnBorder = false;
         }
 
-        if (!camera.isFollowing)
+        if (!camera.isFollowing && camera.isOnCheckPoint)
         {
             Vector3 camPos = camera.transform.position;
-            if(transform.position.x - -53.8f < camPos.x)
+            if (transform.position.x - -53.8f < camPos.x)
             {
                 transform.position = new Vector3(camPos.x - 53.8f, transform.position.y, transform.position.z);
+                isOnBorder = true;
+            }
+            else if (transform.position.x - 53.8f > camPos.x)
+            {
+                transform.position = new Vector3(camPos.x + 53.8f, transform.position.y, transform.position.z);
                 isOnBorder = true;
             }
         }
