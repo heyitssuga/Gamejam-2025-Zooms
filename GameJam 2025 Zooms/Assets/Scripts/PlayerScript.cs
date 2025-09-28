@@ -32,6 +32,19 @@ public class PlayerScript : MonoBehaviour
             player.GetComponent<SpriteRenderer>().sprite = sprites[2];
             isAttacked = false;
             timer -= Time.deltaTime;
+
+            if(timer <= 1.7)
+            {
+                player.GetComponent<Animator>().enabled = true;
+                if (!animator.GetBool("IsMoving"))
+                {
+                    player.GetComponent<SpriteRenderer>().sprite = sprites[0];
+                }
+                else
+                {
+                    player.GetComponent<SpriteRenderer>().sprite = sprites[1];
+                }
+            }
             if (timer <= 0)
             {
                 canBeAttacked = true;
