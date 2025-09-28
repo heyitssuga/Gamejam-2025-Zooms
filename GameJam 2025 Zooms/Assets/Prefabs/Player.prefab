@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1513968996331791066}
   - component: {fileID: 5049039925610589657}
   - component: {fileID: 8171311234297690442}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -300,9 +300,9 @@ GameObject:
   - component: {fileID: 4943245171013930024}
   - component: {fileID: 5950137390971133191}
   - component: {fileID: 7347911246733957466}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: PlayerHurtBox
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
