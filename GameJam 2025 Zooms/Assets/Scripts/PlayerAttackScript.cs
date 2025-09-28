@@ -15,6 +15,7 @@ public class PlayerAttackScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        hitbox.SetActive(false);
         attackAction = InputSystem.actions["Attack"];
         canAttack = true;
         canAttack2 = false;
