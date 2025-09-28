@@ -85,15 +85,15 @@ SpriteRenderer:
   m_SortingLayerID: 2018418843
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7111342332076736308, guid: 3d9f4a65761455a48970b0fbd2c3ee90, type: 3}
+  m_Sprite: {fileID: 8855849201573987159, guid: 50f180d40fc3dda47ad9334af0fb2dd8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.65, y: 2.72}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &6385609201202767024
@@ -170,8 +170,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.31, y: 2.94}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 2.3, y: 2.94}
+    newSize: {x: 2.65, y: 2.72}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -224,6 +224,7 @@ MonoBehaviour:
   clip: {fileID: 7400000, guid: b6046a34ba70b7044ac0905091a3cf30, type: 2}
   clip2: {fileID: 7400000, guid: e88b97c2b2586794f841d6e5bc891937, type: 2}
   clip3: {fileID: 7400000, guid: 9c242fdc883842643a3824541568964b, type: 2}
+  hitbox: {fileID: 3101868080913389956}
 --- !u!1 &3101868080913389956
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,13 +235,13 @@ GameObject:
   m_Component:
   - component: {fileID: 6726887841258890546}
   - component: {fileID: 7762866647960313510}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerHitBox
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6726887841258890546
 Transform:
   m_ObjectHideFlags: 0
@@ -250,7 +251,7 @@ Transform:
   m_GameObject: {fileID: 3101868080913389956}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.67, y: 0.39, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
