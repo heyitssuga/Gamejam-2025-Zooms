@@ -5,6 +5,7 @@ using NUnit.Framework.Constraints;
 using Mono.Cecil;
 using UnityEngine.Rendering.Universal.Internal;
 using UnityEngine.UIElements;
+using Unity.VisualScripting;
 
 public class GroundEnemy : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class GroundEnemy : MonoBehaviour
     public AnimationClip clip1;
     private float lengthClip;
     private float waitTime  = 0;
+    public GameObject hitBox;
 
     public bool isAttacked = false;
 
@@ -69,27 +71,31 @@ public class GroundEnemy : MonoBehaviour
     {
         if (target)
         {
-            if (isCloseX == true && isCloseY == false)
+            if (isWalking)
             {
-                rb.linearVelocity = new Vector2(0, moveDirection.y) * moveSpeed;
-                animator.SetBool("isMoving", true);
 
-            }
-            else if (isCloseY == true && isCloseX == false)
-            {
-                rb.linearVelocity = new Vector2(moveDirection.x, 0) * moveSpeed;
-                animator.SetBool("isMoving", true);
+                if (isCloseX == true && isCloseY == false)
+                {
+                    rb.linearVelocity = new Vector2(0, moveDirection.y) * moveSpeed;
+                    animator.SetBool("isMoving", true);
 
-            }
-            else if(isCloseX == true && isCloseY == true)
-            {
-                rb.linearVelocity = new Vector2(0, 0);
-                animator.SetBool("isMoving", false);
-            }
-            else
-            {
-                rb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
-                animator.SetBool("isMoving", true);
+                }
+                else if (isCloseY == true && isCloseX == false)
+                {
+                    rb.linearVelocity = new Vector2(moveDirection.x, 0) * moveSpeed;
+                    animator.SetBool("isMoving", true);
+
+                }
+                else if (isCloseX == true && isCloseY == true)
+                {
+                    rb.linearVelocity = new Vector2(0, 0);
+                    animator.SetBool("isMoving", false);
+                }
+                else
+                {
+                    rb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y) * moveSpeed;
+                    animator.SetBool("isMoving", true);
+                }
             }
         }
     }
@@ -147,8 +153,16 @@ public class GroundEnemy : MonoBehaviour
 
             if (inAttackRange == true)
             {
+                rb.linearVelocity = new Vector2(0, 0);
+                hitBox.SetActive(true);
                 animator.SetTrigger("Attack");
                 waitTime = lengthClip;
+                isWalking = false;
+            }
+            else
+            {
+                isWalking = true;
+                hitBox.SetActive(false);
             }
         }
         else if ((waitTime > 0))
