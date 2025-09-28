@@ -35,7 +35,6 @@ public class PlayerAttackScript : MonoBehaviour
         {
             if (attackCooldown <= 0)
             {
-                Debug.Log("Refreshed!");
                 hitbox.SetActive(false);
                 length = clip.length;
                 length2 = clip2.length;

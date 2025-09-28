@@ -5,16 +5,18 @@ public class CheckPointEnemyManager : MonoBehaviour
 {
     [Header("FirstCheckPoint")]
     [SerializeField] private GameObject[] firstCheckPointEnemies;
+    [SerializeField] private GameObject[] firstCheckPointSpawns;
     [Header("SecondCheckPoint")]
     [SerializeField] private GameObject[] secondCheckPointEnemies;
+    [SerializeField] private GameObject[] secondCheckPointSpawns;
     [Header("ThirdCheckPoint")]
     [SerializeField] private GameObject[] thirdCheckPointEnemies;
+    [SerializeField] private GameObject[] thirdCheckPointSpawns;
     [Header("PlayerStuff")]
     [SerializeField] private GameObject player;
     [SerializeField] private CameraMovementScript cameraMovement;
 
     private int enemyCount;
-    private Vector3 playerPos;
 
     public bool checkPoint1Done = false;
     public bool checkPoint2Done = false;
@@ -45,35 +47,38 @@ public class CheckPointEnemyManager : MonoBehaviour
         switch (checkPointNumber)
         {
             case 1:
-                playerPos = player.transform.position;
-                foreach (GameObject enemy in firstCheckPointEnemies)
+
+                for(int i = 0; i < firstCheckPointEnemies.Length; i++)
                 {
+                    GameObject enemy = firstCheckPointEnemies[i]; 
+                    Vector3 spawnPos = firstCheckPointSpawns[i].transform.position;
                     checkPoint1Done = true;
-                    Instantiate(enemy, new Vector3(200, rnd.Next(0,10), 0), Quaternion.identity);
-                    Debug.Log("Enemy spawned at : " + enemy.transform.position);
+                    Instantiate(enemy, spawnPos, Quaternion.identity);
                     enemy.GetComponent<GroundEnemy>().moveSpeed = rnd.Next(3, 4);
+                    enemy.GetComponent<GroundEnemy>().hp = 3;
                 }
+                    
                 break;
             case 2:
-                playerPos = player.transform.position;
-                foreach (GameObject enemy in secondCheckPointEnemies)
+                for (int i = 0; i < secondCheckPointEnemies.Length; i++)
                 {
+                    GameObject enemy = secondCheckPointEnemies[i];
+                    Vector3 spawnPos = secondCheckPointSpawns[i].transform.position;
                     checkPoint2Done = true;
-                    Instantiate(enemy);
-                    enemy.SetActive(true);
-                    enemy.transform.position = playerPos + new Vector3(40f, 0f, 0f);
+                    Instantiate(enemy, spawnPos, Quaternion.identity);
                     enemy.GetComponent<GroundEnemy>().moveSpeed = rnd.Next(3, 4);
+                    enemy.GetComponent<GroundEnemy>().hp = 3;
                 }
                 break;
             case 3:
-                playerPos = player.transform.position;
-                foreach (GameObject enemy in thirdCheckPointEnemies)
+                for (int i = 0; i < thirdCheckPointEnemies.Length; i++)
                 {
+                    GameObject enemy = thirdCheckPointEnemies[i];
+                    Vector3 spawnPos = thirdCheckPointSpawns[i].transform.position;
                     checkPoint3Done = true;
-                    Instantiate(enemy);
-                    enemy.SetActive(true);
-                    enemy.transform.position = playerPos + new Vector3(40f, 0f, 0f);
+                    Instantiate(enemy, spawnPos, Quaternion.identity);
                     enemy.GetComponent<GroundEnemy>().moveSpeed = rnd.Next(3, 4);
+                    enemy.GetComponent<GroundEnemy>().hp = 3;
                 }
                 break;
         }
