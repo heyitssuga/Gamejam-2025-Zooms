@@ -182,6 +182,7 @@ MonoBehaviour:
   clip2: {fileID: 7400000, guid: e88b97c2b2586794f841d6e5bc891937, type: 2}
   clip3: {fileID: 7400000, guid: 9c242fdc883842643a3824541568964b, type: 2}
   hitbox: {fileID: 3101868080913389956}
+  playa: {fileID: 5049039925610589657}
 --- !u!114 &5049039925610589657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,6 +198,13 @@ MonoBehaviour:
   isAttacked: 0
   hp: 5
   flashDamage: {fileID: 8171311234297690442}
+  canBeAttacked: 1
+  player: {fileID: 180453648322240406}
+  animator: {fileID: 7271401388043442117}
+  sprites:
+  - {fileID: 8855849201573987159, guid: 50f180d40fc3dda47ad9334af0fb2dd8, type: 3}
+  - {fileID: 7956324710507340631, guid: 880f2ab4a6ffbbd4fbb2e69f865b6e53, type: 3}
+  - {fileID: -3265716889032996273, guid: fbf2431e692f6064ababcaf3227fdfc2, type: 3}
 --- !u!114 &8171311234297690442
 MonoBehaviour:
   m_ObjectHideFlags: 0
