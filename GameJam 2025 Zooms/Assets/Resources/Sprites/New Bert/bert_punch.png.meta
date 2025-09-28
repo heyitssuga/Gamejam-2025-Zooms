@@ -131,12 +131,12 @@ TextureImporter:
       name: bert_punch_0
       rect:
         serializedVersion: 2
-        x: 19
-        y: 2
-        width: 254
-        height: 278
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 409
+        height: 282
+      alignment: 9
+      pivot: {x: 0.36, y: 0.52}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -153,12 +153,12 @@ TextureImporter:
       name: bert_punch_1
       rect:
         serializedVersion: 2
-        x: 408
-        y: 6
-        width: 351
-        height: 276
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 409
+        y: 0
+        width: 409
+        height: 282
+      alignment: 9
+      pivot: {x: 0.36, y: 0.52}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -175,12 +175,12 @@ TextureImporter:
       name: bert_punch_2
       rect:
         serializedVersion: 2
-        x: 821
-        y: 4
-        width: 259
-        height: 269
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 818
+        y: 0
+        width: 409
+        height: 282
+      alignment: 9
+      pivot: {x: 0.36, y: 0.52}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -197,12 +197,12 @@ TextureImporter:
       name: bert_punch_3
       rect:
         serializedVersion: 2
-        x: 1243
+        x: 1227
         y: 0
-        width: 366
-        height: 268
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 409
+        height: 282
+      alignment: 9
+      pivot: {x: 0.36, y: 0.52}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -219,19 +219,19 @@ TextureImporter:
       name: bert_punch_4
       rect:
         serializedVersion: 2
-        x: 1661
+        x: 1636
         y: 0
-        width: 262
-        height: 264
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 409
+        height: 282
+      alignment: 9
+      pivot: {x: 0.36, y: 0.52}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a7b0d36802788beb0800000000000000
+      spriteID: 3c6f80fffdb3a4249b67a96109a0f9c4
       internalID: -4703861237027632262
       vertices: []
       indices: 
@@ -241,19 +241,19 @@ TextureImporter:
       name: bert_punch_5
       rect:
         serializedVersion: 2
-        x: 2071
-        y: 2
-        width: 383
-        height: 247
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2045
+        y: 0
+        width: 409
+        height: 282
+      alignment: 9
+      pivot: {x: 0.36, y: 0.52}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2e82d1a3968297730800000000000000
+      spriteID: 43575e40d26f102439eb2ee2544b1dc3
       internalID: 3997270576679692514
       vertices: []
       indices: 
@@ -263,7 +263,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 9b7e45439e1a6374ea94c783fa2bdda8
     internalID: 0
     vertices: []
     indices: 
@@ -271,7 +271,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":6.0,"y":1.0},"gridSpriteSize":{"x":409.0,"y":282.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       bert_punch_0: -2701909211014576628
       bert_punch_1: 4672485969813250193
