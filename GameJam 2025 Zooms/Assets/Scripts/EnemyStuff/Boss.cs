@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Boss : MonoBehaviour
 {
@@ -242,6 +243,7 @@ public class Boss : MonoBehaviour
         else if (deadTimer <= 0 && startedTimer == true)
         {
             Destroy(gameObject);
+            SceneManager.LoadScene(4);
         }
 
     }

@@ -13,10 +13,16 @@ EditorBuildSettings:
     guid: d1012614b8e9fb04c80251c5b3739b3f
   - enabled: 1
     path: Assets/Scenes/Tutorial.unity
-    guid: a78574104b286664cbe5af688a81df81
+    guid: 33e5d9cf847c6e64c93e87f9a59558a5
   - enabled: 1
     path: Assets/Scenes/MovementScene.unity
     guid: 8bb184a93f390e145acee7bccc5fd1b0
+  - enabled: 1
+    path: Assets/Scenes/Victory.unity
+    guid: a78574104b286664cbe5af688a81df81
+  - enabled: 1
+    path: Assets/Scenes/Failure.unity
+    guid: 7416290fe73bb8a47ab867ee539c1a9f
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

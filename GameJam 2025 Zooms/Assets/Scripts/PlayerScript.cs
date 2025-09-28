@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class PlayerScript : MonoBehaviour
     public float hp = 5;
     public SimpleFlash flashDamage;
     private float timer;
+    private float deathTimer;
     public bool canBeAttacked = true;
     [SerializeField] private GameObject player;
     [SerializeField] private Animator animator;
@@ -24,7 +26,22 @@ public class PlayerScript : MonoBehaviour
     {
         if (hp <= 0)
         {
-            Destroy(player);
+            player.GetComponent<MovementScript>().enabled = false;
+            player.GetComponent<PlayerAttackScript>().enabled = false;
+            player.GetComponent<Animator>().enabled = false;
+            player.GetComponent<SpriteRenderer>().sprite = sprites[2];
+            rb.linearVelocity = new Vector2(-200, 50);
+            if (deathTimer > 0)
+            {
+                deathTimer -= Time.deltaTime;
+
+            }
+            else
+            {
+                SceneManager.LoadScene(5);
+            }
+
+
         }
         if (!canBeAttacked)
         {
@@ -73,6 +90,10 @@ public class PlayerScript : MonoBehaviour
             hp -= 1;
             isAttacked = false;
             canBeAttacked = false;
+            if(hp == 0)
+            {
+                deathTimer = 2f;
+            }
         }
 
     }
