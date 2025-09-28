@@ -59,7 +59,7 @@ public class CheckPointEnemyManager : MonoBehaviour
                     Vector3 spawnPos = firstCheckPointSpawns[i].transform.position;
                     checkPoint1Done = true;
                     Instantiate(enemy, spawnPos, Quaternion.identity);
-                    enemy.GetComponent<GroundEnemy>().moveSpeed = rnd.Next(3, 4);
+                    enemy.GetComponent<GroundEnemy>().moveSpeed = rnd.Next(2, 4);
                     enemy.GetComponent<GroundEnemy>().hp = 3;
                 }
                     
@@ -71,7 +71,7 @@ public class CheckPointEnemyManager : MonoBehaviour
                     Vector3 spawnPos = secondCheckPointSpawns[i].transform.position;
                     checkPoint2Done = true;
                     Instantiate(enemy, spawnPos, Quaternion.identity);
-                    enemy.GetComponent<GroundEnemy>().moveSpeed = rnd.Next(3, 4);
+                    enemy.GetComponent<GroundEnemy>().moveSpeed = rnd.Next(2, 4);
                     enemy.GetComponent<GroundEnemy>().hp = 3;
                 }
                 break;
@@ -82,7 +82,7 @@ public class CheckPointEnemyManager : MonoBehaviour
                     Vector3 spawnPos = thirdCheckPointSpawns[i].transform.position;
                     checkPoint3Done = true;
                     Instantiate(enemy, spawnPos, Quaternion.identity);
-                    enemy.GetComponent<GroundEnemy>().moveSpeed = rnd.Next(3, 4);
+                    enemy.GetComponent<GroundEnemy>().moveSpeed = rnd.Next(2, 4);
                     enemy.GetComponent<GroundEnemy>().hp = 3;
                 }
                 break;
@@ -94,7 +94,7 @@ public class CheckPointEnemyManager : MonoBehaviour
                     Vector3 spawnPos = fourthCheckPointSpawns[i].transform.position;
                     checkPoint4Done = true;
                     Instantiate(enemy, spawnPos, Quaternion.identity);
-                    enemy.GetComponent<GroundEnemy>().moveSpeed = rnd.Next(3, 4);
+                    enemy.GetComponent<GroundEnemy>().moveSpeed = rnd.Next(2, 4);
                     enemy.GetComponent<GroundEnemy>().hp = 1;
                 }
                 Vector3 spawnPosBoss = bossSpawns.transform.position;
