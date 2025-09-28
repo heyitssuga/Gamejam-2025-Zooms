@@ -32,6 +32,7 @@ public class Boss : MonoBehaviour
 
     private bool isCloseX = false;
     private bool isCloseY = false;
+    private AudioSource sfx;
 
     private void Awake()
     {
@@ -41,6 +42,7 @@ public class Boss : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        sfx = GameObject.Find("SoundEffects").GetComponent<AudioSource>();
         target = GameObject.Find("Player").transform;
         animator = GetComponent<Animator>();
         Flip();
@@ -230,6 +232,8 @@ public class Boss : MonoBehaviour
     {
         if (deadTimer <= 0 && startedTimer == false)
         {
+            sfx.clip = Resources.Load<AudioClip>("Audio/SFX/hammer");
+            sfx.Play();
             rb.linearVelocity = new Vector2(0, 0);
             rb.rotation = Random.Range(-360, 360);
             rb.linearVelocity = new Vector2(Random.Range(100, 1000), Random.Range(100, 1000));

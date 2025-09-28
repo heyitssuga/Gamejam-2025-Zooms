@@ -14,6 +14,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private Animator animator;
     [SerializeField] private Sprite[] sprites;
+    [SerializeField] private AudioSource sfx;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -86,6 +87,8 @@ public class PlayerScript : MonoBehaviour
     {
         if (isAttacked == true)
         {
+            sfx.clip = Resources.Load<AudioClip>("Audio/SFX/slap");
+            sfx.Play();
             flashDamage.Flash();
             hp -= 1;
             isAttacked = false;

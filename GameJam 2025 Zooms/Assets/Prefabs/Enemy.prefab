@@ -151,7 +151,7 @@ MonoBehaviour:
   spawn2: {fileID: 4836010569326246959}
   spawn3: {fileID: 79141183897825454}
   hp: 3
-  moveSpeed: 4
+  moveSpeed: 3
   target: {fileID: 0}
   enemyInvincbleTime: 0.8
   isWalking: 0
@@ -160,6 +160,12 @@ MonoBehaviour:
   clip1: {fileID: 7400000, guid: 2db1b0a1e8353024eb1cb50cf6de7794, type: 2}
   hitBox: {fileID: 3864612487479426468}
   isAttacked: 0
+  sfx: {fileID: 0}
+  sfxClips:
+  - {fileID: 8300000, guid: e28302fee5b5e5b43b653ae17b5fe069, type: 3}
+  - {fileID: 8300000, guid: 8e352a484be59904db84173749faa98c, type: 3}
+  - {fileID: 8300000, guid: c610b562d01f75c4aab2fd06414ec4f2, type: 3}
+  - {fileID: 8300000, guid: 1dd4ba37460463440ad44de62164c7bd, type: 3}
 --- !u!50 &5367030951921488550
 Rigidbody2D:
   serializedVersion: 5

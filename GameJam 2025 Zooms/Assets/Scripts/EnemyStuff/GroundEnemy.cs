@@ -37,6 +37,8 @@ public class GroundEnemy : MonoBehaviour
 
     private bool isCloseX = false;
     private bool isCloseY = false;
+    private AudioSource sfx;
+    [SerializeField] private AudioClip[] sfxClips;
 
     private void Awake()
     {
@@ -46,6 +48,7 @@ public class GroundEnemy : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        sfx = GameObject.Find("SoundEffects").GetComponent<AudioSource>();
         target = GameObject.Find("Player").transform;
         animator = GetComponent<Animator>();
         Flip();
@@ -138,6 +141,9 @@ public class GroundEnemy : MonoBehaviour
     {
         if(isAttacked == true)
         {
+            System.Random rnd = new System.Random();
+            sfx.clip = sfxClips[rnd.Next(0, sfxClips.Length)];
+            sfx.Play();
             rb.linearVelocity = new Vector2(0, 0);
             isWalking = false;
             flashDamage.Flash();
@@ -207,6 +213,8 @@ public class GroundEnemy : MonoBehaviour
     {
         if (deadTimer <= 0 && startedTimer == false)
         {
+            sfx.clip = Resources.Load<AudioClip>("Audio/SFX/scream");
+            sfx.Play();
             rb.linearVelocity = new Vector2(0, 0);
             rb.rotation = Random.Range(-360, 360);
             rb.linearVelocity = new Vector2(Random.Range(100, 1000), Random.Range(100, 1000));
