@@ -9,9 +9,8 @@ using Unity.VisualScripting;
 
 public class GroundEnemy : MonoBehaviour
 {
-    public GameObject pow;
-    public GameObject crunch;
-    public GameObject booM;
+    public GameObject pow, crunch, boom;
+    public GameObject spawn1, spawn2, spawn3;
 
     public float hp = 3;
     public float moveSpeed = 2f;
@@ -52,9 +51,6 @@ public class GroundEnemy : MonoBehaviour
         animator = GetComponent<Animator>();
         Flip();
         lengthClip = clip1.length;
-        pow.SetActive(false);
-        crunch.SetActive(false);
-        booM.SetActive(false);
     }
 
     // Update is called once per frame
@@ -150,15 +146,15 @@ public class GroundEnemy : MonoBehaviour
             isAttacked = false;
             if (hp == 2)
             {
-                pow.SetActive(true);
+                Instantiate(pow, spawn1.transform.position, spawn1.transform.rotation);
             }
             else if (hp == 1)
             {
-                crunch.SetActive(true);
+                Instantiate(crunch, spawn2.transform.position, spawn2.transform.rotation);
             }
             else if (hp == 0)
             {
-                booM.SetActive(true);
+                Instantiate(boom, spawn3.transform.position, spawn3.transform.rotation);
             }
         }
 
