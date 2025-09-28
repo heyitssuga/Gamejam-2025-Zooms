@@ -9,6 +9,7 @@ public class PlayerScript : MonoBehaviour
     public SimpleFlash flashDamage;
     private float timer;
     private bool canBeAttacked = true;
+    [SerializeField] private GameObject player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,8 +20,13 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(hp <= 0)
+        {
+            Destroy(player);
+        }
         if(!canBeAttacked)
         {
+            isAttacked = false;
             timer -= Time.deltaTime;
             if (timer <= 0)
             {
