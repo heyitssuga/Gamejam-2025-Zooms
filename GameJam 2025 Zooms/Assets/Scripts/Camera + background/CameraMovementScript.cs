@@ -27,6 +27,7 @@ public class CameraMovementScript : MonoBehaviour
         {
             transform.position = new Vector3(0, 0, -10);
             isFollowing = false;
+            isOnCheckPoint = true;
         }
         if (checkPoint.checkPoint1Done && !checkPoint.checkPoint2Done && isOnCheckPoint)
         {
