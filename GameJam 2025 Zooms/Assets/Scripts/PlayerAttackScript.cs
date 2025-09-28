@@ -11,6 +11,7 @@ public class PlayerAttackScript : MonoBehaviour
     private bool canAttack, canAttack2, canAttack3;
     [SerializeField] private Animator animator;
     [SerializeField] private AnimationClip clip, clip2, clip3;
+    [SerializeField] private GameObject hitbox;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -29,6 +30,7 @@ public class PlayerAttackScript : MonoBehaviour
         if (attackCooldown <= 0)
         {
             Debug.Log("Refreshed!");
+            hitbox.SetActive(false);
             length = clip.length;
             length2 = clip2.length;
             length3 = clip3.length;
@@ -51,6 +53,7 @@ public class PlayerAttackScript : MonoBehaviour
 
         if(!hit2 && attackCooldown <= 9.5f)
         {
+            hitbox.SetActive(false);
             canAttack2 = true;
         }
 
@@ -65,7 +68,13 @@ public class PlayerAttackScript : MonoBehaviour
 
         if (!hit3 && attackCooldown <= 9f)
         {
+            hitbox.SetActive(false);
             canAttack3 = true;
+        }
+
+        if(attackCooldown <= 8.5f)
+        {
+            hitbox.SetActive(false);
         }
 
         if(hit3 && !canAttack3)
@@ -79,6 +88,7 @@ public class PlayerAttackScript : MonoBehaviour
 
         if (attackAction.IsPressed() && canAttack)
         {
+            hitbox.SetActive(true);
             hit1 = true;
             animator.SetBool("IsHit1", true);
             canAttack = false;
@@ -86,6 +96,7 @@ public class PlayerAttackScript : MonoBehaviour
         }
        else if(attackAction.IsPressed() && canAttack2)
         {
+            hitbox.SetActive(true);
             hit2 = true;
             animator.SetBool("IsHit2", true);
             canAttack2 = false;
@@ -93,11 +104,11 @@ public class PlayerAttackScript : MonoBehaviour
         }
         else if (attackAction.IsPressed() && canAttack3)
         {
+            hitbox.SetActive(true);
             hit3 = true;
             animator.SetBool("IsHit3", true);
             canAttack3 = false;
             Debug.Log("Attack 3");
         }
     }
-
 }

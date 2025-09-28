@@ -52,7 +52,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -131,7 +131,7 @@ TextureImporter:
       name: bert_punch_0
       rect:
         serializedVersion: 2
-        x: 27
+        x: 20
         y: 3
         width: 254
         height: 278
@@ -153,10 +153,10 @@ TextureImporter:
       name: bert_punch_1
       rect:
         serializedVersion: 2
-        x: 415
+        x: 401
         y: 6
         width: 351
-        height: 277
+        height: 276
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,7 +175,7 @@ TextureImporter:
       name: bert_punch_2
       rect:
         serializedVersion: 2
-        x: 826
+        x: 805
         y: 0
         width: 259
         height: 269
@@ -197,7 +197,7 @@ TextureImporter:
       name: bert_punch_3
       rect:
         serializedVersion: 2
-        x: 1224
+        x: 1196
         y: 0
         width: 366
         height: 267
@@ -219,7 +219,7 @@ TextureImporter:
       name: bert_punch_4
       rect:
         serializedVersion: 2
-        x: 1638
+        x: 1603
         y: 1
         width: 262
         height: 265
@@ -241,7 +241,7 @@ TextureImporter:
       name: bert_punch_5
       rect:
         serializedVersion: 2
-        x: 2053
+        x: 2011
         y: 3
         width: 383
         height: 247
